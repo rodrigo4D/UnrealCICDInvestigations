@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\CI_CD_Inv_Game.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CI_CD_Inv_Game.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\CI_CD_Inv_GameEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{ED49A36C-4FD5-37E5-A2AC-E11BEF4F21CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\HoloLens">
+      <UniqueIdentifier>{28125F47-4973-377C-9D77-EBC3C72EC856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\HoloLens\Config">
+      <UniqueIdentifier>{D3BF39CB-FA64-39E2-A327-B5021BA69773}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Platforms\HoloLens\Config\HoloLensEngine.ini">
+      <Filter>Platforms\HoloLens\Config</Filter>
+    </None>
+    <Filter Include="Source\CI_CD_Inv_Game">
+      <UniqueIdentifier>{FF0A707D-B0C9-3F1A-B20F-8FFE54ED13E5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CI_CD_Inv_Game\CI_CD_Inv_Game.Build.cs">
+      <Filter>Source\CI_CD_Inv_Game</Filter>
+    </None>
+    <ClInclude Include="..\..\Source\CI_CD_Inv_Game\CI_CD_Inv_Game.h">
+      <Filter>Source\CI_CD_Inv_Game</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CI_CD_Inv_Game\CI_CD_Inv_Game.cpp">
+      <Filter>Source\CI_CD_Inv_Game</Filter>
+    </ClCompile>
+    <Filter Include="Source\CI_CD_Inv_Game\Public">
+      <UniqueIdentifier>{2112E76D-F2FD-350F-B2F7-D191AE78C569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\CI_CD_Inv_Game\Public\Characters">
+      <UniqueIdentifier>{C7EF468C-FF9A-36C1-8225-E975534BBADD}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\CI_CD_Inv_Game\Public\Characters\MainCharacter.h">
+      <Filter>Source\CI_CD_Inv_Game\Public\Characters</Filter>
+    </ClInclude>
+    <Filter Include="Source\CI_CD_Inv_Game\Private">
+      <UniqueIdentifier>{317884FE-0F4B-3B40-B7C6-89CEF7068798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\CI_CD_Inv_Game\Private\Characters">
+      <UniqueIdentifier>{8D00B485-871E-3804-A38B-38318C2349BA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CI_CD_Inv_Game\Private\Characters\MainCharacter.cpp">
+      <Filter>Source\CI_CD_Inv_Game\Private\Characters</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

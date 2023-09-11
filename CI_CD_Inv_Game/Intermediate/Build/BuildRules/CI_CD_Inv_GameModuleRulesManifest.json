@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"N:\\4D_Pipeline\\Projects\\UnrealCICDInvestigations\\CI_CD_Inv_Game\\Source\\CI_CD_Inv_Game\\CI_CD_Inv_Game.Build.cs",
+		"N:\\4D_Pipeline\\Projects\\UnrealCICDInvestigations\\CI_CD_Inv_Game\\Source\\CI_CD_Inv_Game.Target.cs",
+		"N:\\4D_Pipeline\\Projects\\UnrealCICDInvestigations\\CI_CD_Inv_Game\\Source\\CI_CD_Inv_GameEditor.Target.cs"
+	],
+	"EngineVersion": "5.1.1"
+}
