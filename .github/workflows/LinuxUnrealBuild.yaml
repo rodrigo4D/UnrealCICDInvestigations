@@ -1,0 +1,38 @@
+name: Unreal Linux Docker Image Project Build
+on: 
+  workflow_dispatch:
+    inputs:
+      project_file:
+        description: The uproject project file name without the extension
+        type: string
+        required: true
+
+jobs:
+  docker_linux_build:
+    runs-on: ubuntu-latest
+    container: 
+      image: ghcr.io/epicgames/unreal-engine:dev-5.1.1
+    steps:
+      - name: list files
+        run: | 
+          pwd
+          whoami
+          ls
+          cd /
+          md project
+      - name: checkout Unreal Project
+        uses: actions/checkout@v4
+        with:
+          path: /project
+      - name: build project
+        run: |
+          pwd
+          ls
+          cd /
+          cd project
+          ls
+          cd ~
+          ls
+          echo ${{ inputs.project_file }}
+        # Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -utf8output -platform=Windows -clientconfig=Shipping -serverconfig=Shipping -project=/project/${{ inputs.project_file }}.uproject -noP4 -nodebuginfo -allmaps -cook -build -stage -prereqs -pak -archive -archivedirectory=/project/Packaged
+
