@@ -14,12 +14,13 @@ jobs:
       image: ghcr.io/epicgames/unreal-engine:dev-5.1.1
       credentials:
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.UNREAL_PAT }}
     steps:
       - name: list files
         run: | 
           pwd
           whoami
+          echo ${{ github.actor }}
           ls
           cd /
           md project
