@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: ghcr.io/epicgames/unreal-engine:dev-5.1.1
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: list files
         run: | 
@@ -20,6 +23,7 @@ jobs:
           ls
           cd /
           md project
+          ls
       - name: checkout Unreal Project
         uses: actions/checkout@v4
         with:
