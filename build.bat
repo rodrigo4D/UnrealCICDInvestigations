@@ -1,0 +1,1 @@
+%1\UE_5.1\Engine\Build\BatchFiles\RunUAT.bat BuildCookRun -utf8output -platform=Win64 -clientconfig=Shipping -serverconfig=Shipping -project=%2 -noP4 -nodebuginfo -allmaps -cook -build -stage -prereqs -pak -archive -archivedirectory=%3
