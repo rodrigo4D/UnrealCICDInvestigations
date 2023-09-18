@@ -1,0 +1,99 @@
+name: Windows Direct Project Build
+on: 
+  workflow_dispatch:
+    inputs:
+      project_file:
+        description: The uproject project file name without the extension
+        type: string
+        required: true
+
+jobs:
+  windows_direct_runner_build:
+    runs-on: self-hosted
+    steps:
+      - name: Config Git for Long Paths
+        run: git config --global core.longpaths true
+######################################################################
+#
+#        Unreal Configuration process: Cache, Checkout, Build
+#
+######################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Caching Configuration for Unreal Build Process
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#      - name: Caching Unreal
+#        id: UnrealEngine_Cache
+#        uses: actions/cache@v3
+#        with:
+#          path: Unreal
+#          key: "Unreal_Cache"
+#      - name: Display Cache Output
+#        run: echo '${{ toJSON(steps.UnrealEngine_Cache.outputs) }}'
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Check out Unreal
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#      - name: Retrieve Engine
+#        uses: actions/checkout@v4
+#        with:
+#           lfs: true
+#           ref: release
+#           token: ${{ secrets.PAT_TOKEN }}
+#           repository: EpicGames/UnrealEngine
+#           path: Unreal
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Build Unreal
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#      - name: Build Unreal Engine
+#        run: |
+#           cd Unreal
+#           ls
+#           .\Setup.bat
+#           cd ..
+#           ls Unreal\Engine\Binaries\Win64\*.exe
+####################################################################################
+#
+#    Project Configuration Process: Cache, Checkout, Build
+#
+#####################################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Cache Configuration for Project Build
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      - name: Cache Project
+        id: project_cache
+        uses: actions/cache@v3
+        with:
+          path: project
+          key: "Project_Cache"
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Checkout Project
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      - name: Checkout Project
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          path: project
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Build Project
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      - name: Build Project
+        run: |
+          ls project\
+          pwd
+          $projDir=pwd
+          echo $projDir
+          $projectD=$projDir.path+"\project\CI_CD_Inv_Game\${{ inputs.project_file }}.uproject"
+          echo $projectD
+          $packageD=$projDir.path+"\project\CI_CD_Inv_Game\Packaged"
+          echo "packageDir=$packageD" >> "$GITHUB_ENV"
+          where RunUAT.bat
+        # TODO: We need to know how to retrieve the place where Unreal is installed
+        # And pass it as first argument of build batch
+        # project\build.bat $epicGamesD $projectD $packageD 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#    Zip the package and configure it for upload so repo owners can download
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      - name: Set result to Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.project_file }}_pkg
+          path: project/CI_CD_Inv_Game/Packaged/
