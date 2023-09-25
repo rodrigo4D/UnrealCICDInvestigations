@@ -86,9 +86,9 @@ jobs:
           $packageD=$projDir.path+"\project\CI_CD_Inv_Game\Packaged"
           echo "packageDir=$packageD" >> "$GITHUB_ENV"
           where RunUAT.bat
+          project\build.bat $epicGamesD $projectD $packageD 
         # TODO: We need to know how to retrieve the place where Unreal is installed
         # And pass it as first argument of build batch
-        # project\build.bat $epicGamesD $projectD $packageD 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #    Zip the package and configure it for upload so repo owners can download
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
