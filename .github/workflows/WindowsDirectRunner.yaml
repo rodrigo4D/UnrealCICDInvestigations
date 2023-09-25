@@ -85,8 +85,8 @@ jobs:
           echo $projectD
           $packageD=$projDir.path+"\project\CI_CD_Inv_Game\Packaged"
           echo "packageDir=$packageD" >> "$GITHUB_ENV"
-          where RunUAT.bat
-          project\build.bat $epicGamesD $projectD $packageD 
+          $unrealToolLocation = where RunUAT.bat
+          project\build.bat $unrealToolLocation $epicGamesD $projectD $packageD 
         # TODO: We need to know how to retrieve the place where Unreal is installed
         # And pass it as first argument of build batch
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
